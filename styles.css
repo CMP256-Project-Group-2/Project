@@ -74,3 +74,61 @@
   color: #234C6A;
   font-size: 17vw;
 }
+
+/* Mariam's CSS */
+
+.bg-darkblue {
+  background-color: #0b2c45 !important;
+}
+
+.btn-darkblue {
+  background-color: #0b2c45;
+  color: white;
+  border: none;
+}
+
+.btn-darkblue:hover {
+  background-color: #0d3a5c;
+}
+
+.btn-outline-darkblue {
+  border: 1px solid #0b2c45;
+  color: #0b2c45;
+}
+
+.btn-outline-darkblue:hover {
+  background-color: #0b2c45;
+  color: white;
+}
+
+/* Header Image */
+.header-img {
+  background: url('img/placeholder.png') center/cover no-repeat;
+  height: 250px;
+  position: relative;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  text-align: center;
+}
+
+/* Form styling */
+body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.form-container {
+  background: white;
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
