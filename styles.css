@@ -50,3 +50,27 @@
   max-width: 35vh !important; /* Adjust the width as needed */
   margin-right: 0.25% !important;
 }
+
+.fullsizebottom{
+  font-family: 'Cinzel'; 
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 17.5vw;
+  margin: 0;
+  white-space: nowrap;
+  line-height: 1; 
+}
+
+.fullcontianerbottom{
+  position: relative;       /* needed for absolute positioning of the text */
+  width: 100%;
+  height: 100vh;            /* make the container fill the viewport height */
+  padding: 0;
+  overflow: hidden; 
+}
+.fullsizespan:hover{
+  color: #234C6A;
+  font-size: 17vw;
+}
