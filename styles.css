@@ -1,0 +1,24 @@
+.navbar {
+  position: relative;
+  background-color: #234C6A !important;
+  color: #D2C1B6 !important;
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);  
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: xx-large;
+  color: beige !important;
+}
+
+.navbar-nav .nav-link {
+  color: #D2C1B6 !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f5e8df !important;   
+}
