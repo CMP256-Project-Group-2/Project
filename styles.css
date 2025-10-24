@@ -72,9 +72,68 @@
   padding: 0;
   overflow: hidden; 
 }
-.fullsizespan:hover{
-  color: #234C6A;
-  font-size: 17vw;
+
+.nav_body {
+  font-family: 'cinzel', serif !important;
+  font-size: 4vh !important;
+  background: linear-gradient(90deg, #00dbde, #fc00ff, #00dbde) !important;
+  background-size: 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  transition: background-position 0.6s ease !important;
+}
+
+.nav_body:hover {
+  background-position: 100% !important;
+  
+}
+
+.price_item {
+  display: flex;
+  align-items: center; /* vertically center */
+}
+
+.dhs_icon {
+  height: 1em;
+  margin-right: 0.25em;
+}
+
+.fa-star{
+  color:#555 !important
+}
+
+.checked {
+  color:#0b2c45 !important;
+}
+
+.body_text_lg{
+  
+  position: relative;
+  margin: 1% 0 1%;
+  text-align: center;
+  font-size: 5.7vh;
+  font-family: 'Cinzel', serif;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.body_text_lg::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  transition: width 0.4s ease;
+}
+
+.body_text_lg:hover {
+  color: #0072ff;
+}
+
+.body_text_lg:hover::after {
+  width: 100%;
 }
 
 /* Mariam's CSS */
