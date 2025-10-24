@@ -10,3 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     content: document.getElementById('loginFormContent').innerHTML
   });
 });
+
+
+var toggleBtn = document.getElementById('toggleSidebar');
+var sidebar = document.getElementById('sidebar');
+
+toggleBtn.onclick = function() {
+  if (sidebar.classList.contains('open')) {
+    sidebar.classList.remove('open');
+  } else {
+    sidebar.classList.add('open');
+  }
+}
