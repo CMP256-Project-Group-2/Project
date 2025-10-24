@@ -11,22 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Mariam's Addition
-const form = document.getElementById("signupForm");
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
 
-  let password = document.getElementById("password").value;
-  let confirmPassword = document.getElementById("confirmPassword").value;
+var toggleBtn = document.getElementById('toggleSidebar');
+var sidebar = document.getElementById('sidebar');
 
-  if (password !== confirmPassword) {
-    alert("Passwords do not match!");
-    return;
+toggleBtn.onclick = function() {
+  if (sidebar.classList.contains('open')) {
+    sidebar.classList.remove('open');
+  } else {
+    sidebar.classList.add('open');
   }
-
-  // Just a fake success message for now
-  alert("Account created successfully!");
-  form.reset();
-});
-
-
+}
