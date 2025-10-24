@@ -26,12 +26,12 @@
 }
 
 .carousel {
-  max-height: 500px; /* Adjust this value as needed */
-  overflow: hidden; /* Hides any content exceeding the max-height */
+  max-height: 500px;
+  overflow: hidden;
 }
 
 .carousel-item img {
-  max-height: 500px; /* Matches the carousel's max-height */
+  max-height: 500px;
   width: 100%;
   object-fit: cover;
   object-position: center;
@@ -49,8 +49,9 @@
 }
 
 .popover {
-  max-width: 35vh !important; /* Adjust the width as needed */
+  max-width: 35vh !important;
   margin-right: 0.25% !important;
+  z-index: 2000 !important; /* important for the popover, the header clips the top part otherwise */
 }
 
 .fullsizebottom{
@@ -66,9 +67,9 @@
 }
 
 .fullcontianerbottom{
-  position: relative;       /* needed for absolute positioning of the text */
+  position: relative;
   width: 100%;
-  height: 100vh;            /* make the container fill the viewport height */
+  height: 100vh;        
   padding: 0;
   overflow: hidden; 
 }
@@ -234,4 +235,5 @@ body {
   top: 10px;
   left: 10px;
   z-index: 101;
+
 }
