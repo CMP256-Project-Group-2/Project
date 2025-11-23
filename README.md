@@ -1,6 +1,9 @@
 # Project
 Group Project for CMP257 Fall 2025 Course.
 
+<img width="2539" height="1307" alt="image" src="https://github.com/user-attachments/assets/d6a30c36-db8d-423e-81fc-37f22a43030b" />
+Check the image, CART and WISHLIST needs to be next to user icon
+
 Todo:
 Body
 
