@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "image": "img/placeholder.png",
+    "title": "Nike Running Shoe",
+    "type": "shoe",
+    "categories": ["men", "new-arrivals", "shoes"],
+    "rating": 4,
+    "badges": ["EU38", "BLACK/WHITE"],
+    "description": "Crossing hardwood comfort with off-court flair. '80s-inspired construction, bold details and nothin'-but-net style.",
+    "price": "69.99",
+    "sizes": ["EU 38", "EU 39", "EU 40", "EU 41", "EU 42"],
+    "measurements": {
+        "Label": "Heel Drop",
+        "Value": "10mm",
+        "Label_2": "Weight",
+        "Value_2": "250g",
+        "DiagramText": "Outsole"
+    }
+  },
+  {
+    "id": 2,
+    "image": "img/placeholder.png",
+    "title": "Urban Trekker",
+    "type": "shoe",
+    "categories": ["men", "shoes"],
+    "rating": 0,
+    "badges": ["EU42", "GREY/ORANGE"],
+    "description": "Built for the concrete jungle. Durable materials meet all-day comfort with renewed foam technology.",
+    "price": "89.50",
+    "sizes": ["EU 40", "EU 41", "EU 42", "EU 43", "EU 44"],
+    "measurements": {
+        "Label": "Traction",
+        "Value": "High",
+        "Label_2": "Waterproof",
+        "Value_2": "Yes",
+        "DiagramText": "Tread"
+    }
+  },
+  {
+    "id": 3,
+    "image": "img/placeholder.png",
+    "title": "Court Vision Low",
+    "type": "shoe",
+    "categories": ["women", "shoes"],
+    "rating": 3,
+    "badges": ["EU40", "WHITE"],
+    "description": "The fastbreak style of '80s basketball meets the fast-paced culture of today's game.",
+    "price": "55.00",
+    "sizes": ["EU 38", "EU 39", "EU 40", "EU 41"],
+    "measurements": {
+        "Label": "Material",
+        "Value": "Leather",
+        "Label_2": "Sole",
+        "Value_2": "Rubber",
+        "DiagramText": "Profile"
+    }
+  },
+  {
+    "id": 4,
+    "image": "img/placeholder.png",
+    "title": "Air Zoom Pegasus",
+    "type": "shoe",
+    "categories": ["women", "new-arrivals", "shoes"],
+    "rating": 4,
+    "badges": ["EU39", "BLUE/LIME"],
+    "description": "Your workhorse with wings returns. Put a spring in your step with responsive foam.",
+    "price": "120.00",
+    "sizes": ["EU 37", "EU 38", "EU 39", "EU 40", "EU 41", "EU 42"],
+    "measurements": {
+        "Label": "Cushion",
+        "Value": "Zoom Air",
+        "Label_2": "Offset",
+        "Value_2": "9mm",
+        "DiagramText": "Tech"
+    }
+  },
+  {
+    "id": 5,
+    "image": "img/placeholder.png",
+    "title": "Noir Classic Hoodie",
+    "type": "hoodie",
+    "categories": ["men", "women", "accessories", "new-arrivals"],
+    "rating": 5,
+    "badges": ["UNISEX", "BLACK"],
+    "description": "Heavyweight french terry cotton. Oversized fit for maximum comfort and urban silhouette.",
+    "price": "125.00",
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "measurements": {
+        "Label": "Chest",
+        "Value": "24 in",
+        "Label_2": "Length",
+        "Value_2": "30 in",
+        "DiagramText": "Fit"
+    }
+  }
+]
