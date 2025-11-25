@@ -434,4 +434,181 @@ function initNavbarScroll() {
       });
     }, 3500); 
   }
+
+  // 3. Send to Backend
+  btn.classList.add('loading');
+  if (isProductPage) btn.innerText = "";
+
+  fetch('AddToCartServlet', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `product_id=${productId}&size=${encodeURIComponent(sizeToSend)}`
+  })
+    .then(response => {
+      if (response.status === 401) {
+        window.location.href = 'create_account.jsp'; // Redirect if not logged in
+      } else if (response.ok) {
+        // Success Animation
+        setTimeout(() => {
+          btn.classList.remove('loading');
+          btn.classList.add('success');
+          // If product page, show specific text
+          btn.innerHTML = isProductPage ? `ADDED (Size ${sizeToSend})` : 'Added!';
+
+          setTimeout(() => {
+            btn.classList.remove('success');
+            if (isProductPage) btn.innerText = "ADD TO CART";
+            else btn.innerHTML = "Add to cart"; // Reset text
+          }, 2000);
+        }, 500);
+      } else {
+        alert("Error adding to cart");
+        btn.classList.remove('loading');
+      }
+    });
+}
+
+
+
+function initSplash() {
+  const splashScreen = document.getElementById("splash-screen");
+  const splashText = document.getElementById("splash-text");
+  const navbarBrand = document.querySelector(".navbar-brand");
+  if (!splashScreen || !splashText || !navbarBrand) return;
+
+  const brandRect = navbarBrand.getBoundingClientRect();
+  const startRect = splashText.getBoundingClientRect();
+  const deltaY = brandRect.top - startRect.top;
+
+  const textContent = splashText.innerText;
+  splashText.innerHTML = textContent.split("").map(char => char === " " ? `<span class="split-char">&nbsp;</span>` : `<span class="split-char">${char}</span>`).join("");
+
+  const tl = gsap.timeline();
+  tl.from(".split-char", { duration: 0.8, y: 80, opacity: 0, stagger: 0.05, ease: "back.out(1.7)" })
+    .to({}, { duration: 0.3 })
+    .to(splashText, { duration: 1.2, y: deltaY, scale: 0.4, color: "#F5F5DC", ease: "power3.inOut" }, "move")
+    .to(splashScreen, { duration: 1, opacity: 0, ease: "power2.inOut", pointerEvents: "none" }, "move+=0.1")
+    .add(() => {
+      splashScreen.style.display = "none";
+      gsap.set(navbarBrand, { opacity: 1 });
+      gsap.to(".flow-item", { x: 0, opacity: 1, stagger: 0.1 });
+    });
+}
+
+function initNavbarScroll() {
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('navbar-glass');
+      navbar.classList.remove('bg-darkblue');
+    } else {
+      navbar.classList.remove('navbar-glass');
+      navbar.classList.add('bg-darkblue');
+    }
+  });
+
+  const textElement = document.getElementById('rotating-text');
+  if (textElement) {
+    const phrases = ["FALL COLLECTION", "DISCOVER MEN", "DISCOVER WOMEN", "URBAN CLASSICS"];
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % phrases.length;
+      gsap.to(textElement, {
+        duration: 0.5, y: -30, opacity: 0, ease: "power2.in",
+        onComplete: () => {
+          textElement.innerText = phrases[index];
+          gsap.set(textElement, { y: 30 });
+          gsap.to(textElement, { duration: 0.8, y: 0, opacity: 1, ease: "elastic.out(1, 0.6)" });
+        }
+      });
+    }, 3500);
+  }
+}
+
+function removeFromWishlist(btn) {
+  const productId = btn.getAttribute('data-id');
+
+
+  fetch('ToggleWishlistServlet', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `product_id=${productId}`
+  })
+    .then(response => {
+      if (response.ok) {
+        //animation here
+        const cardCol = btn.closest('.col-md-6');
+        gsap.to(cardCol, {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.3,
+          onComplete: () => cardCol.remove()
+        });
+      } else {
+        alert("Could not remove item.");
+      }
+    });
+}
+
+//CHECKLOUTUTUTT
+
+window.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.address-card');
+  if (cards.length > 0) {
+    cards[0].click(); // first avlaible
+  }
+
+  //synicing inputs
+  const manualInputs = document.querySelectorAll('.manual-input');
+  manualInputs.forEach(input => {
+    input.addEventListener('input', syncManualInputs);
+    input.addEventListener('change', syncManualInputs);
+  });
+});
+
+function selectAddress(card, fullName, addr, city, state) {
+  // 1. Visuals
+  document.querySelectorAll('.address-card').forEach(c => {
+    c.classList.remove('border-primary', 'bg-light');
+    c.querySelector('input[type="radio"]').checked = false;
+  });
+  card.classList.add('border-primary', 'bg-light');
+  card.querySelector('input[type="radio"]').checked = true;
+
+  // 2. Hide Manual Form
+  document.getElementById('manual-address-form').classList.add('d-none');
+
+  // 3. Populate Hidden Fields
+  // Split name blindly (First word = First Name, Rest = Last Name)
+  const nameParts = fullName.split(" ");
+  const fName = nameParts[0];
+  const lName = nameParts.slice(1).join(" ") || "."; // Default dot if no last name
+
+  document.getElementById('h_fname').value = fName;
+  document.getElementById('h_lname').value = lName;
+  document.getElementById('h_addr').value = addr;
+  document.getElementById('h_city').value = city;
+  document.getElementById('h_emirate').value = state;
+}
+
+function toggleManualAddress() {
+  // Clear visual selection
+  document.querySelectorAll('.address-card').forEach(c => {
+    c.classList.remove('border-primary', 'bg-light');
+    c.querySelector('input[type="radio"]').checked = false;
+  });
+
+  // Show form
+  document.getElementById('manual-address-form').classList.remove('d-none');
+
+  // Clear hidden inputs so manual inputs take over via sync function
+  syncManualInputs();
+}
+
+function syncManualInputs() {
+  document.getElementById('h_fname').value = document.getElementById('m_fname').value;
+  document.getElementById('h_lname').value = document.getElementById('m_lname').value;
+  document.getElementById('h_addr').value = document.getElementById('m_addr').value;
+  document.getElementById('h_city').value = document.getElementById('m_city').value;
+  document.getElementById('h_emirate').value = document.getElementById('m_emirate').value;
 }
